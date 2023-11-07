@@ -4,13 +4,6 @@ const path = require('path');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const { authMiddleware } = require('./utils/auth');
-const mongoose = require('mongoose');
-
-// Connect to the MongoDB database using the MONGO_URI environment variable
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 
 // Import the two parts of a GraphQL schema
 const { typeDefs, resolvers } = require('./schemas');
@@ -53,3 +46,4 @@ const startApolloServer = async () => {
 
 // Call the async function to start the server
 startApolloServer();
+
